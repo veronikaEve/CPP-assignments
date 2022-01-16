@@ -1,9 +1,11 @@
 #ifndef TASK1_GAME_H
 #define TASK1_GAME_H
 
+#include <ctime>
 #include "GameComponent.h"
 
-template<typename FP>
+using FP = void(*)();
+
 class Game {
 private:
 	int componentCount;

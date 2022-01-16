@@ -1,6 +1,29 @@
 #include <iostream>
+#include "Game.h"
+#include "GameComponent.h"
+#include "DrawableGameComponent.h"
+
+using namespace std;
+
+void initialising(){
+	cout << "Initialising Game" << endl;
+}
+
+void terminating(){
+	cout << "Terminating Game" << endl;
+}
 
 int main() {
-	std::cout << "Hello, World!" << std::endl;
-	return 0;
+	Game *newGame = new Game(5);
+	newGame->SetInitialise(initialising);
+
+	GameComponent *newGameComponent = new GameComponent;
+	newGame->Add(newGameComponent);
+
+	DrawableGameComponent *newDrawableGameComponent = new DrawableGameComponent(0, 0);
+	newGame->Add(newDrawableGameComponent);
+
+	newGame->Run();
+	newGame->SetTerminate(terminating);
+
 }

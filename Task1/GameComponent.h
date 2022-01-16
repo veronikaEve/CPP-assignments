@@ -14,7 +14,7 @@ public:
 	GameComponent();
 	~GameComponent();
 
-	void Update(tm*);
+	void Update(const tm*);
 
 };
 

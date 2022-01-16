@@ -1,31 +1,30 @@
 #include "Game.h"
 
-template<typename FP>
-Game<FP>::Game(int maxComponents) {
+Game::Game(int maxComponents) : TICKS_1000MS(1000) {
 
 }
 
-template<typename FP>
-Game<FP>::~Game() {
+Game::~Game() {
 
 }
 
-template<typename FP>
-void Game<FP>::Add(GameComponent *) {
-
+void Game::Add(GameComponent *) {
+	components[componentCount];
 }
 
-template<typename FP>
-void Game<FP>::Run() {
-
+void Game::Run() {
+	initialise();
+	for (int i = 0; i < componentCount; ++i) {
+//		components[i]->Update();
+		cout << "WHAAAAAAAA" << endl;
+	}
+	terminate();
 }
 
-template<typename FP>
-void Game<FP>::SetInitialise(FP init) {
+void Game::SetInitialise(FP init) {
 	Game::initialise = init;
 }
 
-template<typename FP>
-void Game<FP>::SetTerminate(FP term) {
+void Game::SetTerminate(FP term) {
 	Game::terminate = term;
 }
