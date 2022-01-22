@@ -1,6 +1,6 @@
 #include "DrawableGameComponent.h"
 
-DrawableGameComponent::DrawableGameComponent(int x, int y): x(0), y(0) {
+DrawableGameComponent::DrawableGameComponent(int x, int y): x(x), y(y) {
 	direction = Direction::Right;
 }
 
@@ -17,7 +17,7 @@ void DrawableGameComponent::Draw() {
 }
 
 void DrawableGameComponent::Update(const tm *eventTime) {
-	cout << "Object's id: " << "Time of invocation: " << eventTime << endl;
+	cout << "Object's id: " << "" << "Time of invocation: " << eventTime << endl;
 
 	switch (direction) {
 		case Right:

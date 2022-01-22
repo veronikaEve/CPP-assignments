@@ -4,7 +4,7 @@
 #include <ctime>
 #include "GameComponent.h"
 
-using FP = void(*)();
+typedef void(*FP)();
 
 class Game {
 private:
@@ -13,18 +13,16 @@ private:
 
 	FP initialise;
 	FP terminate;
-	const int TICKS_1000MS;
+	const int TICKS_1000MS = 1000;
 
 public:
 	Game(int maxComponents);
 	~Game();
 
-	void Add(GameComponent*);
+	void Add(GameComponent* g);
 	void Run();
 	void SetInitialise(FP init);
 	void SetTerminate(FP term);
-
-
 };
 
 
