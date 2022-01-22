@@ -16,6 +16,7 @@ void terminating(){
 int main() {
 	Game *newGame = new Game(2);
 	newGame->SetInitialise(initialising);
+	newGame->SetTerminate(terminating);
 
 	GameComponent *newGameComponent = new GameComponent;
 	newGame->Add(newGameComponent);
@@ -24,6 +25,5 @@ int main() {
 	newGame->Add(newDrawableGameComponent);
 
 	newGame->Run();
-	newGame->SetTerminate(terminating);
 
 }

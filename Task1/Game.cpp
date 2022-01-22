@@ -17,7 +17,12 @@ void Game::Add(GameComponent* g) {
 void Game::Run() {
 	initialise();
 	for (int i = 0; i < componentCount; ++i) {
-//		components[i]->Update();
+		time_t rawtime;
+		struct tm *timeinfo;
+		time(&rawtime);
+		timeinfo = localtime(&rawtime);
+
+		components[i]->Update(timeinfo);
 		cout << "WHAAAAAAAA" << i << endl;
 	}
 	terminate();
