@@ -3,8 +3,6 @@
 #include "GameComponent.h"
 #include "DrawableGameComponent.h"
 
-using namespace std;
-
 void initialising(){
 	cout << "Initialising Game" << endl;
 }
@@ -22,5 +20,4 @@ int main() {
 	newGame->Add(new DrawableGameComponent(0, 0));
 
 	newGame->Run();
-
 }

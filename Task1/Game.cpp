@@ -19,7 +19,7 @@ void Game::Run() {
 	initialise();
 
 	for (int j = 0; j < 5; ++j) {
-		sleep(TICKS_1000MS);
+		sleep(TICKS_1000MS); // 1 second
 
 		for (int i = 0; i < componentCount; ++i) {
 			time_t rawtime;

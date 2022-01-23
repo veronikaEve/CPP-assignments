@@ -30,11 +30,11 @@ void DrawableGameComponent::ChangeDirection() {
 }
 
 void DrawableGameComponent::Draw() {
-	cout << "Current direction: " << EnumToString(direction) << " x: " << x << " y: " << y << endl;
+	cout << "Direction: " << EnumToString(direction) << " x: " << x << " y: " << y << endl;
 }
 
 void DrawableGameComponent::Update(const tm *eventTime) {
-	cout << "Object's id: " << this->id << " Time of invocation: " << asctime(eventTime) << endl;
+	cout << "ID: " << this->id << " Time: " << asctime(eventTime);
 
 	switch (direction) {
 		case Right:
