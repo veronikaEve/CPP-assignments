@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include "Game.h"
 
 Game::Game(int maxComponents) {
@@ -16,8 +17,11 @@ void Game::Add(GameComponent* g) {
 
 void Game::Run() {
 	initialise();
+
+	for (int j = 0; j < 5; ++j) {
+		sleep(TICKS_1000MS);
+
 		for (int i = 0; i < componentCount; ++i) {
-			// TODO: Still need to put this in a loop that gets called every second 5 times.
 			time_t rawtime;
 			struct tm *timeinfo;
 			time(&rawtime);
@@ -25,6 +29,8 @@ void Game::Run() {
 
 			this->components[i]->Update(timeinfo);
 		}
+	}
+
 	terminate();
 }
 
