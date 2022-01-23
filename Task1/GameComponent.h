@@ -6,9 +6,9 @@
 using namespace std;
 
 class GameComponent {
-private: // The class diagram said 'private' but i dont see how that would work since the child wouldn't have an id
-	int instances;
+protected:
 	int id;
+	static int instances;
 
 public:
 	GameComponent();

@@ -1,13 +1,12 @@
 #include "GameComponent.h"
+int GameComponent::instances = 0;
 
 GameComponent::GameComponent(){
-		id = instances;
-	cout << "GameComponent constructor called once " << instances << endl;
-		instances++;
-	cout << "GameComponent constructor called twice " << instances << endl;
+	instances++;
+	id = instances;
 }
 
-GameComponent::~GameComponent(void) {
+GameComponent::~GameComponent() {
 
 }
 

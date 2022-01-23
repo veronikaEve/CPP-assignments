@@ -19,7 +19,7 @@ public:
 	Game(int maxComponents);
 	~Game();
 
-	void Add(GameComponent* g);
+	void Add(GameComponent*);
 	void Run();
 	void SetInitialise(FP init);
 	void SetTerminate(FP term);
