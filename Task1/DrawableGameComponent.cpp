@@ -1,6 +1,6 @@
 #include "DrawableGameComponent.h"
 
-DrawableGameComponent::DrawableGameComponent(int x, int y): x(x), y(y) {
+DrawableGameComponent::DrawableGameComponent(int x, int y): x(x), y(y), GameComponent() {
 	direction = Direction::Right;
 }
 
@@ -13,7 +13,7 @@ void DrawableGameComponent::ChangeDirection() {
 }
 
 void DrawableGameComponent::Draw() {
-	cout << "Current direction: " << direction << "x: " << x << "y: " << y << endl;
+	cout << "Current direction: " << direction << " |x: " << x << " |y: " << y << endl;
 }
 
 void DrawableGameComponent::Update(const tm *eventTime) {

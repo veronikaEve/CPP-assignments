@@ -18,11 +18,13 @@ int main() {
 	newGame->SetInitialise(initialising);
 	newGame->SetTerminate(terminating);
 
-	GameComponent *newGameComponent = new GameComponent;
-	newGame->Add(newGameComponent);
+//	GameComponent *newGameComponent = new GameComponent();
+//	DrawableGameComponent *newerGameComponent = new DrawableGameComponent(3, 4);
 
-	DrawableGameComponent *newDrawableGameComponent = new DrawableGameComponent(3, 4);
-	newGame->Add(newDrawableGameComponent);
+//	newGame->Add(newGameComponent);
+//	newGame->Add(newerGameComponent);
+	newGame->Add(new GameComponent());
+	newGame->Add(new DrawableGameComponent(2, 1));
 
 	newGame->Run();
 

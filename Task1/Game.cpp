@@ -16,15 +16,15 @@ void Game::Add(GameComponent* g) {
 
 void Game::Run() {
 	initialise();
-	for (int i = 0; i < componentCount; ++i) {
-		time_t rawtime;
-		struct tm *timeinfo;
-		time(&rawtime);
-		timeinfo = localtime(&rawtime);
+		for (int i = 0; i < componentCount; ++i) {
+			// TODO: Still need to put this in a loop that gets called every second 5 times.
+			time_t rawtime;
+			struct tm *timeinfo;
+			time(&rawtime);
+			timeinfo = localtime(&rawtime);
 
-		components[i]->Update(timeinfo);
-		cout << "WHAAAAAAAA" << i << endl;
-	}
+			this->components[i]->Update(timeinfo);
+		}
 	terminate();
 }
 

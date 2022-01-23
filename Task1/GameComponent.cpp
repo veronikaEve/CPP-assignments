@@ -1,13 +1,16 @@
 #include "GameComponent.h"
 
 GameComponent::GameComponent(){
-	id = instances;
+		id = instances;
+	cout << "GameComponent constructor called once " << instances << endl;
+		instances++;
+	cout << "GameComponent constructor called twice " << instances << endl;
 }
 
-GameComponent::~GameComponent() {
+GameComponent::~GameComponent(void) {
 
 }
 
-void GameComponent::Update(const tm* time) {
-	cout << "Object's id: " << id << " Time of invocation: " <<  asctime(time) << endl;
+void GameComponent::Update(const tm* eventTime) {
+	cout << "Object's id: " << this->id << " Time of invocation: " <<  asctime(eventTime) << endl;
 }

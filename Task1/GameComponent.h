@@ -6,15 +6,15 @@
 using namespace std;
 
 class GameComponent {
-private:
-	int id;
+private: // The class diagram said 'private' but i dont see how that would work since the child wouldn't have an id
 	int instances;
+	int id;
 
 public:
 	GameComponent();
 	~GameComponent();
 
-	void Update(const tm*);
+	virtual void Update(const tm*);
 
 };
 
