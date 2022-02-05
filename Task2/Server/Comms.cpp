@@ -23,12 +23,16 @@ void Comms::SendMessage(char *message, int socket) {
     }
 }
 
-void Comms::ReceiveMessage(char *message, int socket) {
-    int byteCount2 = recv(socket, message, bufferSize, 0);
-    if (byteCount2 < 0)
-        cout << "error" << endl;
-    else {
-        cout << "Received data: " << message << endl;
+void Comms::ReceiveMessage(int socket) {
+    while (true) {
+        char receiveBuffer[bufferSize];
+        int byteCount = recv(socket, receiveBuffer, bufferSize, 0);
+        if (byteCount < 0)
+            cout << "error" << endl;
+        else {
+            cout << "Received data: " << receiveBuffer << endl;
+            if (Comms::Quit(receiveBuffer)) break;
+        }
     }
 }
 

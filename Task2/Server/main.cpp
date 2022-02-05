@@ -15,7 +15,7 @@ int main() {
     server->CreateSocket();
     server->BindSocket();
     server->ListenSocket();
-    server->AcceptSocket();
+    server->ReceiveMessage(server->AcceptSocket());
 
 #endif
 

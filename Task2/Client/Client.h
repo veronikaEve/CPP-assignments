@@ -5,10 +5,12 @@
 
 class Client: public Comms{
 public:
-    char *clientMessage;
+    char *clientMessage = "";
     Client();
-    void GetMessage();
+    char[bufferSize] GetMessage;
+
     void ConnectSocket();
+    void Chat();
 };
 
 

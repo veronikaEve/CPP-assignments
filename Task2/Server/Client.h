@@ -9,7 +9,7 @@ public:
     Client();
     void GetMessage();
     void ConnectSocket();
+    void Chat();
 };
-
 
 #endif //CLIENT_CLIENT_H

@@ -1,5 +1,9 @@
 #include "Client.h"
 
+Client::Client() {
+
+}
+
 void Client::ConnectSocket() {
     if (connect(newSocket, (sockaddr *) &socketAddress, sizeof(socketAddress)) == -1) {
         cout << "error with connection" << endl;
@@ -16,6 +20,12 @@ void Client::GetMessage() {
     clientMessage = buffer;
 }
 
-Client::Client() {
-
+void Client::Chat() {
+    while (true){
+        GetMessage();
+        SendMessage( clientMessage, newSocket);
+        if(Quit(clientMessage)){
+            break;
+        }
+    }
 }
