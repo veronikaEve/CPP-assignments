@@ -15,17 +15,17 @@ int main() {
     server->CreateSocket();
     server->BindSocket();
     server->ListenSocket();
-    server->ReceiveMessage(server->AcceptSocket());
+    server->ReceiveMessage(server->ClientSocket());
 
 #endif
 
 #ifdef CLIENT
 
-        Client* client = new Client();
+    Client* client = new Client();
         client->CreateSocket();
         client->ConnectSocket();
-        client->GetMessage();
-        client->SendMessage( client->clientMessage, client->newSocket);
+        client->Chat();
+
 #endif
 
 }

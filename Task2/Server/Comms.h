@@ -20,7 +20,6 @@ public:
     Comms();
 
     void CreateSocket();
-    char* GetMessage();
     void SendMessage(char*message, int socket);
     void ReceiveMessage(int socket);
     bool Quit(char*message);

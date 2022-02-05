@@ -8,7 +8,7 @@ public:
     Server();
     void BindSocket();
     void ListenSocket();
-    int AcceptSocket();
+    int ClientSocket();
 };
 
 

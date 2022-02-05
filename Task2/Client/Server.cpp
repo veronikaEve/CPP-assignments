@@ -14,7 +14,7 @@ void Server::ListenSocket() {
         cout << "listening..." << endl;
 }
 
-int Server::AcceptSocket() {
+int Server::ClientSocket() {
     sockaddr_storage client;
     socklen_t clientSize = sizeof(client);
     int clientSocket = accept(newSocket, (sockaddr*)&client, &clientSize);

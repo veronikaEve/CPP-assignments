@@ -18,7 +18,7 @@ void Client::Chat() {
         cout << "Enter your message: ";
         cin.getline(buffer, bufferSize);
         cout << "You typed: " << buffer << endl;
-        SendMessage(Comms::GetMessage(), newSocket);
-        if(Quit(Comms::GetMessage())) break;
+        SendMessage(buffer, newSocket);
+        if(Quit(buffer)) break;
     }
 }
