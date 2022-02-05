@@ -13,6 +13,14 @@ Comms::Comms() {
     inet_pton(AF_INET, address.c_str(), &socketAddress.sin_addr);
 }
 
+char* Comms::GetMessage() {
+    char buffer[bufferSize];
+    cout << "Enter your message: ";
+    cin.getline(buffer, bufferSize);
+    cout << "You typed: " << buffer << endl;
+    return buffer;
+}
+
 void Comms::SendMessage(char *message, int socket) {
     int byteCount = send(socket, message, bufferSize, 0);
     if (byteCount == -1) {
@@ -37,5 +45,5 @@ void Comms::ReceiveMessage(int socket) {
 }
 
 bool Comms::Quit(char *message) {
-   return strcmp(message, "QUIT") == 0;
+   return strcmp(message, quitCode.c_str()) == 0;
 }

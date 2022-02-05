@@ -12,29 +12,13 @@ void Client::ConnectSocket() {
     }
 }
 
-//char Client::GetMessage() {
-//        char buffer[bufferSize];
-//        cout << "Enter your message: ";
-//        cin.getline(buffer, bufferSize);
-//        cout << "You typed: " << buffer << endl;
-//       clientMessage = buffer;
-//        cout << "fruit:" << clientMessage << endl; // this outputs the actual thing
-//}
-
-char[bufferSize] Client::GetMessage() {
-    char buffer[bufferSize];
-    cout << "Enter your message: ";
-    cin.getline(buffer, bufferSize);
-    cout << "You typed: " << buffer << endl;
-    clientMessage = buffer;
-    return clientMessage;
-}
-
 void Client::Chat() {
     while (true){
-
-        SendMessage( clientMessage, newSocket);
-
-        if(Comms::Quit(clientMessage)) break;
+        char buffer[bufferSize];
+        cout << "Enter your message: ";
+        cin.getline(buffer, bufferSize);
+        cout << "You typed: " << buffer << endl;
+        SendMessage(Comms::GetMessage(), newSocket);
+        if(Quit(Comms::GetMessage())) break;
     }
 }

@@ -14,12 +14,14 @@ public:
     sockaddr_in socketAddress;
     int newSocket;
     const string address = "127.0.0.1";
+    const string quitCode = "QUIT";
     const int bufferSize = 200;
 
     Comms();
 
     void CreateSocket();
-    void SendMessage(char *message, int socket);
+    char* GetMessage();
+    void SendMessage(char*message, int socket);
     void ReceiveMessage(int socket);
     bool Quit(char*message);
 

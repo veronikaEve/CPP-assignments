@@ -14,14 +14,17 @@ void Server::ListenSocket() {
         cout << "listening..." << endl;
 }
 
-void Server::AcceptSocket() {
+int Server::AcceptSocket() {
     sockaddr_storage client;
     socklen_t clientSize = sizeof(client);
     int clientSocket = accept(newSocket, (sockaddr*)&client, &clientSize);
-    if (clientSocket == -1)
+    if (clientSocket == -1) {
         cout << "accept error" << endl;
-    else
+    }
+    else {
         cout << "accept successful! Now connected to the client " << endl;
+        return clientSocket;
+    }
 }
 
 Server::Server() {

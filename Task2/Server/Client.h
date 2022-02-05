@@ -5,9 +5,8 @@
 
 class Client: public Comms{
 public:
-    char *clientMessage;
     Client();
-    void GetMessage();
+
     void ConnectSocket();
     void Chat();
 };
