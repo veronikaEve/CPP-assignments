@@ -9,8 +9,10 @@
 class Server: public Comms{
 public:
     Server();
+
     void BindSocket() throw (BindSocketException);
     void ListenSocket() throw (ListenSocketException);
+    void Chat(int socket);
     int ClientSocket() throw (ClientSocketException);
 };
 

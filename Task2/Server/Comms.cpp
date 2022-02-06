@@ -24,17 +24,13 @@ void Comms::SendMessage(char *message, int socket) throw(SendMessageException) {
     }
 }
 
-void Comms::ReceiveMessage(int socket) throw(ReceiveMessageException) {
-    while (true) {
-        char receiveBuffer[bufferSize];
-        int byteCount = recv(socket, receiveBuffer, bufferSize, 0);
-        if (byteCount < 0) {
-            throw ReceiveMessageException();
-        }
-        else {
-            cout << "Received data: " << receiveBuffer << endl;
-            if (Comms::Quit(receiveBuffer)) break;
-        }
+void Comms::ReceiveMessage(char*receiveBuffer, int socket) throw(ReceiveMessageException) {
+    int byteCount = recv(socket, receiveBuffer, bufferSize, 0);
+    if (byteCount < 0) {
+        throw ReceiveMessageException();
+    }
+    else {
+        cout << "Received data: " << receiveBuffer << endl;
     }
 }
 

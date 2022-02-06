@@ -1,5 +1,9 @@
 #include "Server.h"
 
+Server::Server() {
+
+}
+
 void Server::BindSocket() throw(BindSocketException) {
     if (::bind(newSocket, (sockaddr*)&socketAddress, sizeof(socketAddress)) == -1) {
         throw BindSocketException();
@@ -28,6 +32,16 @@ int Server::ClientSocket() throw(ClientSocketException) {
     }
 }
 
-Server::Server() {
+void Server::Chat(int socket) {
+    while (true){
+        char buffer[bufferSize];
 
+        ReceiveMessage(buffer, socket);
+        if(Quit(buffer)) break;
+
+        cout << "Enter your message: ";
+        cin.getline(buffer, bufferSize);
+        cout << "You typed: " << buffer << endl;
+        SendMessage(buffer, socket);
+    }
 }

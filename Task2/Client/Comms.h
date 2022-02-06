@@ -23,8 +23,8 @@ public:
     Comms();
 
     void CreateSocket() throw (CreateSocketException);
-    void SendMessage(char *message, int socket)  throw (SendMessageException);
-    void ReceiveMessage(int socket)  throw (ReceiveMessageException);
+    void SendMessage(char *message, int socket) throw (SendMessageException);
+    void ReceiveMessage(char *message, int socket) throw (ReceiveMessageException);
     bool Quit(char*message);
 
 };

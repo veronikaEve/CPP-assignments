@@ -12,5 +12,4 @@ public:
     void Chat();
 };
 
-
 #endif //CLIENT_CLIENT_H

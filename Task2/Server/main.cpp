@@ -16,7 +16,7 @@ int main() {
         server->CreateSocket();
         server->BindSocket();
         server->ListenSocket();
-        server->ReceiveMessage(server->ClientSocket());
+        server->Chat(server->ClientSocket());
     } catch (CreateSocketException& e) {
         cout << e.what() << endl;
     } catch (BindSocketException& e) {
@@ -24,6 +24,8 @@ int main() {
     } catch (ListenSocketException& e) {
         cout << e.what() << endl;
     } catch (ReceiveMessageException& e) {
+        cout << e.what() << endl;
+    } catch (SendMessageException& e) {
         cout << e.what() << endl;
     } catch (...) {
         cout << " Error - Something went wrong on the server";
@@ -42,6 +44,8 @@ int main() {
     } catch (ConnectSocketException& e) {
         cout << e.what() << endl;
     } catch (SendMessageException& e) {
+        cout << e.what() << endl;
+    } catch (ReceiveMessageException& e) {
         cout << e.what() << endl;
     } catch (...) {
         cout << " Error - Something went wrong on the client";
