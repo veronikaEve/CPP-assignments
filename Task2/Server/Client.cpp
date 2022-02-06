@@ -4,11 +4,11 @@ Client::Client() {
 
 }
 
-void Client::ConnectSocket() {
+void Client::ConnectSocket() throw(ConnectSocketException) {
     if (connect(newSocket, (sockaddr *) &socketAddress, sizeof(socketAddress)) == -1) {
-        cout << "error with connection" << endl;
+        throw ConnectSocketException();
     } else {
-        cout << "connection okay - now connected to Server" << endl;
+        cout << "Connected" << endl;
     }
 }
 

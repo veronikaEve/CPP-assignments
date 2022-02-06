@@ -6,6 +6,9 @@
 #include <sys/types.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include "Exceptions/CreateSocketException.h"
+#include "Exceptions/SendMessageException.h"
+#include "Exceptions/ReceiveMessageException.h"
 
 using namespace std;
 
@@ -19,9 +22,9 @@ public:
 
     Comms();
 
-    void CreateSocket();
-    void SendMessage(char*message, int socket);
-    void ReceiveMessage(int socket);
+    void CreateSocket() throw (CreateSocketException);
+    void SendMessage(char *message, int socket)  throw (SendMessageException);
+    void ReceiveMessage(int socket)  throw (ReceiveMessageException);
     bool Quit(char*message);
 
 };

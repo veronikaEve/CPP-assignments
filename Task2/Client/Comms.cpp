@@ -1,9 +1,11 @@
 #include "Comms.h"
 
-void Comms::CreateSocket() {
+void Comms::CreateSocket() throw(CreateSocketException) {
     newSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (newSocket == -1) {
-        cout << "error with creating socket" << endl;
+        throw CreateSocketException();
+    } else {
+        cout << "Socket created!" << endl;
     }
 }
 
@@ -13,22 +15,22 @@ Comms::Comms() {
     inet_pton(AF_INET, address.c_str(), &socketAddress.sin_addr);
 }
 
-void Comms::SendMessage(char *message, int socket) {
+void Comms::SendMessage(char *message, int socket) throw(SendMessageException) {
     int byteCount = send(socket, message, bufferSize, 0);
     if (byteCount == -1) {
-        cout << "Server send error" << endl;
-    }
-    else {
-        cout << "Server: sent " << byteCount << endl;
+        throw SendMessageException();
+    } else {
+        cout << "Sent! ✅" << endl;
     }
 }
 
-void Comms::ReceiveMessage(int socket) {
+void Comms::ReceiveMessage(int socket) throw(ReceiveMessageException) {
     while (true) {
         char receiveBuffer[bufferSize];
         int byteCount = recv(socket, receiveBuffer, bufferSize, 0);
-        if (byteCount < 0)
-            cout << "error" << endl;
+        if (byteCount < 0) {
+            throw ReceiveMessageException();
+        }
         else {
             cout << "Received data: " << receiveBuffer << endl;
             if (Comms::Quit(receiveBuffer)) break;
