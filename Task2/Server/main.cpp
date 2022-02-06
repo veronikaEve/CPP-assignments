@@ -12,21 +12,22 @@
 int main() {
 #ifdef SERVER
     try {
-    Server* server = new Server();
-    server->CreateSocket();
-    server->BindSocket();
-    server->ListenSocket();
-    server->ReceiveMessage(server->ClientSocket());
-} catch (CreateSocketException& e) {
-    cout << e.what() << endl;
-} catch (BindSocketException& e) {
-    cout << e.what() << endl;
-} catch (ListenSocketException& e) {
-    cout << e.what() << endl;
-} catch (ReceiveMessageException& e) {
-    cout << e.what() << endl;
-}
-
+        Server* server = new Server();
+        server->CreateSocket();
+        server->BindSocket();
+        server->ListenSocket();
+        server->ReceiveMessage(server->ClientSocket());
+    } catch (CreateSocketException& e) {
+        cout << e.what() << endl;
+    } catch (BindSocketException& e) {
+        cout << e.what() << endl;
+    } catch (ListenSocketException& e) {
+        cout << e.what() << endl;
+    } catch (ReceiveMessageException& e) {
+        cout << e.what() << endl;
+    } catch (...) {
+        cout << " Error - Something went wrong on the server";
+    }
 
 #endif
 
@@ -42,6 +43,8 @@ int main() {
         cout << e.what() << endl;
     } catch (SendMessageException& e) {
         cout << e.what() << endl;
+    } catch (...) {
+        cout << " Error - Something went wrong on the client";
     }
 
 #endif
